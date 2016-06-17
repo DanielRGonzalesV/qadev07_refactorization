@@ -6,22 +6,26 @@ package com.fundacionjala.movies;
 public class Movie_New_Release extends Movie {
 
     private static final double RENT_PRICE = 1;
+    private static final int RETARD = 1;
     private static final double PRICE_RETARD = 3;
-    private static int POINTS = 1;
 
-    public Movie_New_Release(String title, int priceCode) {
-        super(title, priceCode);
+
+    public Movie_New_Release(String title)
+    {
+        super(title, RENT_PRICE, RETARD, PRICE_RETARD);
+
     }
 
     public double calculateCharge(int daysRented){
-        double charge = RENT_PRICE;
-               charge += daysRented * PRICE_RETARD;
+        double charge = getRent_Price();
+               charge += daysRented * getPrice_Retard();
         return charge;
     }
 
     public int calculatePoints(int daysRented){
+    int points = POINTS;
         if ( daysRented > 1)
-            POINTS++;
-        return POINTS;
+            points++;
+        return points;
     }
 }

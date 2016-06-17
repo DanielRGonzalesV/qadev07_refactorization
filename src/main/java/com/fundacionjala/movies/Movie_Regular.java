@@ -11,18 +11,22 @@ public class Movie_Regular extends Movie {
     private static final int POINTS = 1;
 
 
-    public Movie_Regular(String title, int priceCode) {
-        super(title, priceCode);
+    public Movie_Regular(String title) {
+
+        super(title, RENT_PRICE, RETARD, PRICE_RETARD);
+
     }
 
     public double calculateCharge(int daysRented){
-        double charge = RENT_PRICE;
-        if (daysRented > RETARD)
-            charge += (daysRented - RETARD) * PRICE_RETARD;
+        double charge = getRent_Price();
+        if (daysRented > getRetard()) {
+            charge += (daysRented - getRetard()) * getPrice_Retard();
+        }
         return charge;
     }
 
     public int calculatePoints(int daysRented){
+
         return POINTS;
     }
 }

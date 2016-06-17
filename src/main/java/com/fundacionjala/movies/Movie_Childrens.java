@@ -8,21 +8,23 @@ public class Movie_Childrens extends Movie {
     private static final double RENT_PRICE = 1.5;
     private static final int RETARD = 3;
     private static final double PRICE_RETARD = 1.5;
-    private static final int POINTS = 1;
 
-    public Movie_Childrens(String title, int priceCode) {
-        super(title, priceCode);
+
+    public Movie_Childrens(String title) {
+        super(title, RENT_PRICE, RETARD, PRICE_RETARD);
+
     }
 
     public double calculateCharge(int daysRented){
-        double charge = RENT_PRICE;
-        if (daysRented > RETARD)
-            charge += (daysRented - RETARD) * PRICE_RETARD;
-
+        double charge = getRent_Price();
+        if (daysRented > getRetard()) {
+            charge += (daysRented - getRetard()) * getPrice_Retard();
+        }
         return charge;
     }
 
     public int calculatePoints(int daysRented){
+
         return POINTS;
     }
 

@@ -11,11 +11,13 @@ class Rental {
 
 
     public double calculateCharge() {
-    return movie.calculateCharge(getDaysRented());
+
+        return movie.calculateCharge(getDaysRented());
     }
 
     public int calculateFrequentRenterPoints() {
-    return movie.calculatePoints(getDaysRented());
+
+        return movie.calculatePoints(getDaysRented());
     }
 
     public int getDaysRented() {
@@ -28,3 +30,4 @@ class Rental {
         return movie;
     }
 }
+
